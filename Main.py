@@ -3,7 +3,7 @@ import sys
 import time
 import os
 
-roomcount=10
+roomcount=1
 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
