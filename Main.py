@@ -3,7 +3,7 @@ import sys
 import time
 import os
 
-roomcount=0
+roomcount=10
 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -306,6 +306,7 @@ def hang_fight():
     global roomcount
     boss={"health":25,"attack":random.randint(5,8)}
     Cool_Ghost={"health":5,"attack":random.randint(2,4)}
+    slow_print("Lets play a FUNNN game of hangman!\n")
     if roomcount<10:
         Enemy=Cool_Ghost
     elif roomcount==10:
@@ -424,20 +425,23 @@ def Final_boss():
         game=Boss_games.copy()
         random.shuffle(game)
         First_game=game.pop()
-        slow_print(f"The figure is changing shape... First game...\n")
-        First_game()
+        slow_print(f"The figure is changing shape... It transforms into another monster. First game...\n")
+        First_game();time.sleep(1)
         time.sleep(1)
+        print()
         Second_game=game.pop()
-        slow_print("The figure morphes violently")
+        slow_print("The figure morphes violently. It takes on the appearance of a new foe")
         slower_print("...\n")
         slow_print("Second game...\n")
-        Second_game()
+        Second_game();time.sleep(1)
         time.sleep(1)
-        print("The figure is bending and twisting")
-        slower_print("...\n")
+        print()
+        print("The figure is bending and twisting. It transforms again, but seems to be struggling.")
+        slower_print("...\n");time.sleep(0.5)
         slow_print("Final game...\n")
-        Third_game=game.pop()
-        Third_game()
+        Third_game=game.pop();time.sleep(1.5)
+        Third_game();time.sleep(1)
+        print()
         slow_print("You gained \033[92m??? EXP\033[0m from defeating the final boss!\n You reached \033[33mLEVEL 10!\033[0m");time.sleep(1.5)
         player["level"]=10
         clear_console()
@@ -460,7 +464,7 @@ def chest_room():
     dagger={"Item":"Dagger","Power":random.randint(1,3)}
     Halbert={"Item":"Halbert","Power":random.randint(3,5)}
     item_pool = [Attack_potion,sword,dagger,Halbert]
-    mimic= random.randint(1,100)
+    mimic= random.randint(1,6)
     print("You enter a dimly lit room with a large chest in the center.")
     open_chest = input("Do you want to open the chest? (yes/no): ").lower()
     if open_chest == "yes" or open_chest=="y":
